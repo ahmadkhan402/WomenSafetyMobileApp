@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { colors } from "../../utils/database";
 
 const styles = StyleSheet.create({
     backgroundImage: {
@@ -26,16 +27,39 @@ const styles = StyleSheet.create({
       textAlign: 'center',
     },
     button: {
+     
       backgroundColor: '#f39c12',
       paddingVertical: 15,
       paddingHorizontal: 40,
       borderRadius: 30,
+      marginBottom:"10%"
+    },
+    button1: {
+  
+      alignItems:"center",
+      width:"38%",
+      backgroundColor: colors.btnBg,
+      paddingVertical: 10,
+      paddingHorizontal: 10,
+      borderRadius: 30,
+      marginRight:"5%"
     },
     buttonText: {
       fontSize: 18,
       color: '#fff',
       fontWeight: 'bold',
     },
+    buttonText1: {
+      fontSize: 14,
+      color: '#fff',
+      fontWeight: 'bold',
+    },
+    featuresContainer: {
+      flexDirection:"row",
+      paddingHorizontal:18,
+      justifyContent:"space-between",
+      alignItems:"center"
+    }
   });
   
   export default styles;
