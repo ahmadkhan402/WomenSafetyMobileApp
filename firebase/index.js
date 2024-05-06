@@ -9,12 +9,13 @@ import { getStorage } from "firebase/storage";
 import { getDatabase } from "firebase/database";
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAOLmybOzgPAl_dv9Nu6n6gjWYLOr4y74U",
-  authDomain: "patientportal-2c9e0.firebaseapp.com",
-  projectId: "patientportal-2c9e0",
-  storageBucket: "patientportal-2c9e0.appspot.com",
-  messagingSenderId: "153225066358",
-  appId: "1:153225066358:web:5c58c0417d41d7adf76c57"
+  apiKey: "AIzaSyBXkBSYD19cKZblC7l88hTW80WryNhWX68",
+  authDomain: "womensecurity-c64c4.firebaseapp.com",
+  projectId: "womensecurity-c64c4",
+  storageBucket: "womensecurity-c64c4.appspot.com",
+  messagingSenderId: "324651652499",
+  appId: "1:324651652499:web:63b332e975de9800318466",
+  measurementId: "G-PWH2NXRYW3"
 };
 
 // Initialize Firebase

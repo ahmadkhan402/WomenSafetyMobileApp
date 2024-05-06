@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
       marginBottom:"10%"
     },
     button1: {
-  
+  marginTop:20,
       alignItems:"center",
       width:"38%",
       backgroundColor: colors.btnBg,
@@ -50,11 +50,14 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
     },
     buttonText1: {
-      fontSize: 14,
+      fontSize: 12,
       color: '#fff',
       fontWeight: 'bold',
+
     },
     featuresContainer: {
+      
+      // width:"100%",
       flexDirection:"row",
       paddingHorizontal:18,
       justifyContent:"space-between",

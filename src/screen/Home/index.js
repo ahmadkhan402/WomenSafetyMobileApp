@@ -32,7 +32,7 @@ export default function HomeScreen ({ navigation }){
 
         {showFeatures && (
           
-      
+      <>
         <View style={styles.featuresContainer}>
 
         <TouchableOpacity style={styles.button1} onPress={()=>navigation.navigate(ScreenNames.USERCALL)}>
@@ -42,7 +42,12 @@ export default function HomeScreen ({ navigation }){
         <TouchableOpacity style={styles.button1} onPress={()=> navigation.navigate(ScreenNames.MAPVIEW)}>
           <Text style={styles.buttonText1}>Check Location</Text>
         </TouchableOpacity>
+      
         </View>
+        <TouchableOpacity style={styles.button1} onPress={()=> navigation.navigate(ScreenNames.PANICBTNSCREEN)}>
+          <Text style={styles.buttonText1}>Panic Btn</Text>
+        </TouchableOpacity>
+        </>
       )}
       </View>
     </ImageBackground>

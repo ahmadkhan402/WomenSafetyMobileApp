@@ -9,7 +9,7 @@ import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import { AntDesign ,Ionicons} from '@expo/vector-icons';
 import styles from './styles';
 import { signOut } from 'firebase/auth';
-import { FontAwesome ,Feather} from '@expo/vector-icons';
+import { FontAwesome,MaterialCommunityIcons ,Feather} from '@expo/vector-icons';
 
 import Routes from '../../route';
 import { auth } from '../../firebase';
@@ -34,9 +34,17 @@ function CustomDrawerContent({ navigation }) {
   const drawerItems = [
     { label: 'MAP', icon: <FontAwesome name="map-marker" size={24} color="black" />, screen: ScreenNames.MAPVIEW },
     { label: 'User Call', icon: <Feather name="phone-call" size={24} color="black" />, screen: ScreenNames.USERCALL },
-    // Add more drawer items as needed
+    { label: 'Panic Mode', icon: <MaterialCommunityIcons name="car-emergency" size={24} color="black" />, screen: ScreenNames.PANICBTNSCREEN },
   ];
 
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      navigation.navigate(ScreenNames.LOGIN);
+    } catch (error) {
+      console.error('Error signing out: ', error.message);
+    }
+  };
   const renderItem = (item, index) => (
     <TouchableOpacity
       key={index}
@@ -59,6 +67,9 @@ function CustomDrawerContent({ navigation }) {
       <View style={styles.drawerItemsContainer}>
         {drawerItems.map((item, index) => renderItem(item, index))}
       </View>
+      <TouchableOpacity style={styles.logoutContainer} onPress={handleLogout}>
+        <Text style={{ color: "black" }}>Logout</Text>
+      </TouchableOpacity>
     </DrawerContentScrollView>
   );
 }

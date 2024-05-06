@@ -33,7 +33,7 @@ export default function Signup({navigation})  {
 
         const user = userCredential.user;
         setId(user.uid);
-        AddUserData(id, Username, email);
+     
         console.log("register User", user.uid);
         navigation.navigate("Login");
       })
@@ -64,18 +64,7 @@ export default function Signup({navigation})  {
         console.log("rrerror", Error);
       });
   };
-  // const AddUserData = async (id, Username, email) => {
-  //   try {
-  //     const userRef = doc(db, "users", auth.currentUser.uid);
-  //     await setDoc(userRef, {
-  //       username: Username,
-  //       email: email,
-  //       Id: auth.currentUser.uid,
-  //     });
-  //   } catch (e) {
-  //     console.error("Error adding document: ", e);
-  //   }
-  // };
+  
   return (
     <View style={styles.container}>
         <View style={{ alignItems: "center" }}>
@@ -160,7 +149,7 @@ export default function Signup({navigation})  {
             justifyContent: "center",
           }}
         >
-          <TouchableOpacity style={styles.btn} onPress={()=>{navigation.navigate(ScreenNames.LOGIN)}}>
+          <TouchableOpacity style={styles.btn} onPress={handleSignUp}>
             <Text style={styles.Text}>Signup</Text>
           </TouchableOpacity>
         </View>

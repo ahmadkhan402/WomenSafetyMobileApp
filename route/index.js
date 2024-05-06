@@ -14,6 +14,7 @@ import Signup from "../src/screen/signup";
 import Splash from "../src/screen/splash";
 import MapViewScreen from "../src/map";
 import UserCall from "../src/userCall";
+import PanicButtonScreen from "../src/screen/panicmode";
 
 const Stack = createNativeStackNavigator();
 const navigationRef = createNavigationContainerRef();
@@ -30,6 +31,7 @@ export default function Routes() {
         <Stack.Screen name={ScreenNames.SPLASH} component={Splash} />
         <Stack.Screen name={ScreenNames.MAPVIEW} component={MapViewScreen} />
         <Stack.Screen name={ScreenNames.USERCALL} component={UserCall} />
+        <Stack.Screen name={ScreenNames.PANICBTNSCREEN} component={PanicButtonScreen} />
       </Stack.Navigator>
   //  </NavigationContainer>
   );

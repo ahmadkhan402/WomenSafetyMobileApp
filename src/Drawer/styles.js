@@ -7,6 +7,15 @@ const styles = StyleSheet.create({
         backgroundColor: colors.blue,
         // justifyContent: "space-between",
       },
+      logoutContainer: {
+       flex: 1,
+        justifyContent:"flex-end",
+        alignSelf:"flex-end",
+    backgroundColor: colors.lightGrey,
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderRadius: 8,
+      },
       drawerTopIcon:{
         marginTop:20,
         padding:28

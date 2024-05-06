@@ -5,6 +5,7 @@ const ScreenNames = {
     SPLASH:"Splash",
     MAPVIEW:"MapView",
     USERCALL:"UserCall",
+    PANICBTNSCREEN:"PanicBtnScreen",
     ROUTE:"Route",
   };
   

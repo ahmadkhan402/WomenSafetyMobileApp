@@ -122,7 +122,7 @@ export default function Login({navigation}) {
           justifyContent: "center",
         }}
       >
-        <TouchableOpacity style={styles.btn} onPress={()=> navigation.navigate(ScreenNames.HOME)}>
+        <TouchableOpacity style={styles.btn} onPress={handleLogin}>
           <Text style={styles.Text}>Login</Text>
         </TouchableOpacity>
       </View>
