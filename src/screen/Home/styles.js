@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
     },
     buttonText1: {
-      fontSize: 12,
+      fontSize: 14,
       color: '#fff',
       fontWeight: 'bold',
 
