@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
 import styles from './styles';
+import CustomHeader from '../../../components/header';
 
 export default function HomeScreen ({ navigation }){
   const navigateToFeatures = () => {
@@ -9,6 +10,9 @@ export default function HomeScreen ({ navigation }){
   };
 
   return (
+    <View style={{flex:1}}>
+<CustomHeader/>
+   
     <ImageBackground
       source={require('./../../../assets/womenSecurity.jpg')}
       style={styles.backgroundImage}
@@ -23,6 +27,7 @@ export default function HomeScreen ({ navigation }){
         </TouchableOpacity>
       </View>
     </ImageBackground>
+    </View>
   );
 };
 

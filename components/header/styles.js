@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native';
 import { colors } from '../../src/utils/database';
+
 const styles = StyleSheet.create({
     header: {
-     flex: 0.2,
+     flex: 0.1,
      justifyContent: 'center',
-      backgroundColor: colors.blue,
+      backgroundColor: "#fff" ,
       paddingTop:20,
     },
  headerContainer: {
@@ -30,10 +31,12 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       textAlign: 'center',
     },
-    welcomeText: {
+    title: {
       fontSize: 16,
-      fontWeight: '200',
-      color: '#fff',
+      fontWeight: 'bold',
+      color: 'black',
+      textAlign:"center",
+      paddingLeft:20
     },
     userName: {
       fontSize: 19,

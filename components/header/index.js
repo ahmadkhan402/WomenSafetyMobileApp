@@ -10,23 +10,19 @@ import { doc, getDoc } from 'firebase/firestore';
 export default function CustomHeader() {
   const navigation = useNavigation()
 
-  const [userName, setUserName] = useState("");
+
   const openDrawer = () => {
     navigation.openDrawer();
   };
-
-  useEffect(() => {
-      getDataFromFirestore()
-  }, [])
 
 
   return (
     <View style={styles.header}>
       <View style={styles.headerContainer}>
         <TouchableOpacity onPress={openDrawer}>
-          <Ionicons name="menu-outline" size={30} color="#fff" style={styles.menuIcon} />
+          <Ionicons name="menu-outline" size={30} color="black" style={styles.menuIcon} />
         </TouchableOpacity>
-       
+       <Text style={styles.title}>WOMEN'S SECURITY</Text>
       </View>
     </View>
   );

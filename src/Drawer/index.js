@@ -7,12 +7,13 @@ import { createDrawerNavigator, useDrawerStatus } from '@react-navigation/drawer
 import { createStackNavigator } from '@react-navigation/stack';
 import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import { AntDesign ,Ionicons} from '@expo/vector-icons';
-import ScreenNames from '../route/routes';
 import styles from './styles';
 import { signOut } from 'firebase/auth';
+import { FontAwesome ,Feather} from '@expo/vector-icons';
 
 import Routes from '../../route';
 import { auth } from '../../firebase';
+import ScreenNames from '../../route/routes';
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 
@@ -29,66 +30,36 @@ const Stack = createStackNavigator();
 //   )
 // }
 
-function CustomDrawerContent(props) {
+function CustomDrawerContent({ navigation }) {
+  const drawerItems = [
+    { label: 'MAP', icon: <FontAwesome name="map-marker" size={24} color="black" />, screen: ScreenNames.MAPVIEW },
+    { label: 'User Call', icon: <Feather name="phone-call" size={24} color="black" />, screen: ScreenNames.USERCALL },
+    // Add more drawer items as needed
+  ];
 
-
-  const isfocus = useIsFocused()
-  const status = useDrawerStatus()
-
-
-
-  const navigation = useNavigation()
-
-  const handleLogout = () => {
-    // Show confirmation alert before logging out
-    Alert.alert(
-      'Confirm Logout',
-      'Are you sure you want to log out?',
-      [
-        {
-          text: 'Cancel',
-          style: 'cancel'
-        },
-        {
-          text: 'Logout',
-          onPress: () => {userLogout()}
-        }
-      ],
-      { cancelable: false }
-    );
-  };
-
-    const userLogout=()=>{
-      signOut(auth).then(() => {
-
-        // alert('Sign-out successful')
-        navigation.navigate(ScreenNames.LOGIN)
-      }).catch((error) => {
-        // An error happened.
-        alert('An error happened')
-      });
-
-    }
-
+  const renderItem = (item, index) => (
+    <TouchableOpacity
+      key={index}
+      style={styles.drawerItem}
+      onPress={() => {
+        navigation.closeDrawer(); 
+        navigation.navigate(item.screen);
+      }}
+    >
+      <View style={styles.itemIconContainer}>
+        {item.icon}
+      </View>
+      <Text style={styles.itemText}>{item.label}</Text>
+    </TouchableOpacity>
+  );
 
   return (
-    <View style={styles.drawerContainer}>
-    <View style={styles.drawerTopIcon}>
-    <Ionicons name="menu-outline" size={30} color="#fff" />
-    </View>
-      <View style={styles.drawerHeader}>
-        {/* Display your name at the top */}
-        <Text style={styles.nameText}>{userName.substring(0, 10)}</Text>
+    <DrawerContentScrollView style={styles.drawerContainer}>
+      {/* You can place your logo or top icon here */}
+      <View style={styles.drawerItemsContainer}>
+        {drawerItems.map((item, index) => renderItem(item, index))}
       </View>
-
-      {/* Your existing content */}
-      <View style={styles.content}>
-        <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
-          <AntDesign name="logout" size={24} color="#fff"/>
-          <Text style={styles.logoutText}>Logout</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+    </DrawerContentScrollView>
   );
 }
 

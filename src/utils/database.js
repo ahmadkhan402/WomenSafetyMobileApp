@@ -29,6 +29,12 @@ export const colors = {
   cadetBlue: '#5F9EA0',
   lightSlateGrey: '#778899',
   darkSlateGrey: '#2F4F4F',
+  primaryColor: "#053F74",
+  LightColor: "#F3F8FF",
+  btnBg: "#0985BF",
+  btnText: "#fff",
+  lightOrange:"#f39c12"
+
   };
   
   

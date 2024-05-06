@@ -11,6 +11,7 @@ import Register from "../src/screen/signup";
 import { auth, db } from "../firebase";
 import HomeScreen from "../src/screen/Home";
 import Signup from "../src/screen/signup";
+import Splash from "../src/screen/splash";
 
 const Stack = createNativeStackNavigator();
 const navigationRef = createNavigationContainerRef();
@@ -20,11 +21,11 @@ const navigationRef = createNavigationContainerRef();
 export default function Routes() {
   return (
       // <NavigationContainer ref={navigationRef}>
-      <Stack.Navigator initialRouteName={auth.currentUser ? ScreenNames.HOME : ScreenNames.LOGIN} screenOptions={{ headerShown: false }}>
+      <Stack.Navigator initialRouteName={ ScreenNames.SPLASH} screenOptions={{ headerShown: false }}>
         <Stack.Screen name={ScreenNames.LOGIN} component={Login} />
         <Stack.Screen name={ScreenNames.SIGNUP} component={Signup} />
         <Stack.Screen name={ScreenNames.HOME} component={HomeScreen} />
-
+        <Stack.Screen name={ScreenNames.SPLASH} component={Splash} />
       </Stack.Navigator>
   //  </NavigationContainer>
   );
