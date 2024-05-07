@@ -4,10 +4,12 @@ import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
 import { colors } from '../utils/database';
 import CustomHeader from '../../components/header';
-
+import { FontAwesome } from '@expo/vector-icons';
+import { Share } from 'react-native';
 const MapScreen = () => {
   const [currentLocation, setCurrentLocation] = useState(null);
   const [locationName, setLocationName] = useState('');
+
 
   const fetchCurrentLocation = async () => {
     try {
@@ -34,9 +36,23 @@ const MapScreen = () => {
     }
   };
 
+  const handleShare = async () => {
+    try {
+      if (locationName.trim() !== '') {
+        await Share.share({
+          message: locationName,
+        });
+      } else {
+        // If location name is empty, show an alert or handle it as per your app's logic
+        alert('Please enter a location name to share.');
+      }
+    } catch (error) {
+      console.error('Error sharing:', error.message);
+    }
+  };
   return (
     <View style={styles.container}>
-    <CustomHeader/>
+      <CustomHeader />
       <TouchableOpacity style={styles.button} onPress={fetchCurrentLocation}>
         <Text style={styles.buttonText}>Where am I?</Text>
       </TouchableOpacity>
@@ -60,12 +76,19 @@ const MapScreen = () => {
           />
         </MapView>
       )}
-      <TextInput
-        style={styles.textInput}
-        placeholder="Location Name"
-        value={locationName}
-        onChangeText={(text) => setLocationName(text)}
-      />
+      <View style={styles.rowContainer}>
+
+
+        <TextInput
+          style={styles.textInput}
+          placeholder="Location Name"
+          value={locationName}
+          onChangeText={(text) => setLocationName(text)}
+        />
+        <TouchableOpacity onPress={handleShare}>
+          <FontAwesome name="share-square-o" size={24} color={colors.lightOrange} />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -74,13 +97,25 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  rowContainer: {
+    position: 'absolute',
+    flex:1,
+    bottom: 20,
+    left: 20,
+    right: 20,
+    justifyContent:"space-between",
+    flexDirection: 'row',
+    alignItems:"center"
+
+ 
+  },
   button: {
-   position:"absolute",
+    position: "absolute",
     top: "50%",
-    paddingHorizontal:16,
+    paddingHorizontal: 16,
     marginHorizontal: 28,
-    alignItems:"center",
-    alignSelf:"center",
+    alignItems: "center",
+    alignSelf: "center",
     backgroundColor: colors.lightOrange,
     padding: 10,
     borderRadius: 8,
@@ -94,10 +129,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   textInput: {
-    position: 'absolute',
-    bottom: 20,
-    left: 20,
-    right: 20,
+    // position: 'absolute',
+    // bottom: 20,
+    // left: 20,
+    // right: 20,
+width:"90%",
     backgroundColor: 'white',
     paddingHorizontal: 10,
     paddingVertical: 8,
